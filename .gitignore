@@ -1,0 +1,24 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env (sometimes created differently)
+.env/
+.env.*
+
+
+# Docker saved images / tarballs
+*.tar
+
+# OS files
+.DS_Store
+
+# Misc backups
+*.swp
+*.swo
+
+# Logs
+*.log
