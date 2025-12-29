@@ -1,0 +1,13 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.20
+pymupdf>=1.25.0
+pydantic
+python-dotenv
+APScheduler>=1.0.0
+
+# YOLOS signature detection (HuggingFace transformers)
+transformers>=4.30.0
+torch>=2.0.0
+numpy>=1.24.0
+pillow>=10.0.0
