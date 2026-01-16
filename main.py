@@ -1,6 +1,6 @@
 """
-FastAPI PDF Redactor Service
-Provides REST API endpoints for PDF redaction using PyMuPDF
+DocRedact AI API by Sync-ho
+REST API endpoints for PDF redaction using PyMuPDF
 """
 
 from dotenv import load_dotenv
@@ -72,8 +72,8 @@ async def lifespan(app: FastAPI):
 
 # Create FastAPI app with lifespan
 app = FastAPI(
-    title="PDF Redactor API",
-    description="API for redacting PII from PDF documents",
+    title="DocRedact AI API",
+    description="Enterprise document redaction API powered by Sync-ho",
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc",
@@ -87,8 +87,7 @@ app.include_router(log_router)
 # In production, set CORS_ORIGINS="https://yourdomain.com,https://app.yourdomain.com"
 ALLOWED_ORIGINS = os.environ.get(
     "CORS_ORIGINS",
-    "https://dga-document-agent.gosign.de/"  # Default for production
-    # "http://localhost:3000,http://localhost:8080"  # Default for dev
+    "http://localhost:3000,http://localhost:8080"  # Default for dev
 ).split(",")
 
 # Add CORS middleware
@@ -192,8 +191,9 @@ def validate_pdf_file(file: UploadFile) -> None:
 async def root():
     """Root endpoint with API information"""
     return {
-        "service": "PDF Redactor API",
+        "service": "DocRedact AI API",
         "version": "1.1.0",
+        "provider": "Sync-ho",
         "endpoints": {
             "health": "/health",
             "redact": "/redact (POST)",
@@ -205,7 +205,7 @@ async def root():
         "signature_detection": {
             "yolo_available": YOLO_AVAILABLE
         },
-        "description": "Upload a PDF and redaction coordinates to get a redacted PDF back. Also supports AI-powered signature detection and redaction."
+        "description": "Enterprise document redaction with AI-powered PII detection and signature redaction."
     }
 
 
@@ -214,7 +214,7 @@ async def health_check():
     """Health check endpoint"""
     return HealthResponse(
         status="healthy",
-        service="PDF Redactor API",
+        service="DocRedact AI API",
         version="1.0.0"
     )
 
