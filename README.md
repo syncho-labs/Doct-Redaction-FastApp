@@ -593,4 +593,4 @@ Contributions are welcome! Please ensure:
 - ✅ Automatic log cleanup scheduler
 - ✅ Bearer token authentication
 - ✅ Docker support
-- ✅ Interactive API documentation
+- ✅ Interactive API documentation 
